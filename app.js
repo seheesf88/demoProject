@@ -32,10 +32,11 @@ app.use('/orders', orderRoutes);
 
 mongoose.connect(
   'mongodb+srv://test1:' +
-  process.evn.MONGO_ATLAS_PW +
+  process.env.MONGO_ATLAS_PW +
   '@cluster0-s6o7f.mongodb.net/test?retryWrites=true&w=majority',
   {
-  useMongoClient: true;
+  // useMongoClient: true
+  useNewUrlParser: true
 });
 
 app.use((req, res, next) => {
